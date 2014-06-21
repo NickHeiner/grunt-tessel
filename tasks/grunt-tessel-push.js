@@ -4,9 +4,12 @@ module.exports = function(grunt) {
 
     grunt.registerTask('tessel-push', function() {
         var done = this.async(),
+            options = this.options({
+                log: grunt.log.ok
+            }),
             push = require('..').push;
 
-        push().then(done, function(err) {
+        push(options).then(done, function(err) {
             done(util.isError(err) ? err : new Error(err));
         });
     });
