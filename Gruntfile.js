@@ -15,6 +15,12 @@ module.exports = function(grunt) {
             grunt: {
                 src: ['Gruntfile.js']
             }
+        },
+
+        mochaTest: {
+            e2e: {
+                src: ['test/e2e/**/*.js']
+            }
         }
     });
 
