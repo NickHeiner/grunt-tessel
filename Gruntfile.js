@@ -49,6 +49,9 @@ module.exports = function(grunt) {
         mochaTest: {
             e2e: {
                 src: [path.join('test', 'e2e', '**', '*.js')]
+            },
+            unit: {
+                src: [path.join('test', 'unit', '**', '*.js')]
             }
         },
 
@@ -75,11 +78,18 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('default', 'test');
-    grunt.registerTask('test', [
-        'jshint',
+    grunt.registerTask('unit', 'mochaTest:unit');
+    
+    grunt.registerTask('e2e', [
         'clean:sandbox',
         'mkdir:sandbox',
         'blacklist-dev-deps',
         'mochaTest:e2e'
+    ]);
+
+    grunt.registerTask('test', [
+        'jshint',
+        'unit',
+        'e2e' 
     ]);
 };
