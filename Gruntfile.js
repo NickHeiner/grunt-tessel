@@ -24,5 +24,9 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.registerTask('test', 'jshint');
+    grunt.registerTask('default', 'test');
+    grunt.registerTask('test', [
+        'jshint',
+        'mochaTest:e2e'
+    ]);
 };
