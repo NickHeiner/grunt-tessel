@@ -26,13 +26,23 @@ module.exports = function(grunt) {
 
         jshint: {
             options: {
-                node: true
+                node: true,
+                expr: true
             },   
             lib: {
                 src: [path.join('lib', '**', '*.js')],
             },
             grunt: {
                 src: ['Gruntfile.js']
+            },
+            test: {
+                src: [path.join('test', 'e2e')],
+                options: {
+                    globals: {
+                        describe: true,
+                        it: true
+                    }
+                }
             }
         },
 
