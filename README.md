@@ -3,7 +3,17 @@ grunt-tessel
 
 > Grunt tasks to aid tessel development
 
-This project adds two tasks to your grunt: `blacklist-dev-deps` and `tessel-push`.
+![demo image](http://i.imgur.com/95q3PpP.png)
+
+This project adds two tasks to your grunt: `blacklist-dev-deps` and `tessel-push`. This enables you to push to tessel as part of your workflow. For example: 
+
+```js
+grunt.registerTask('deploy', [
+    'test', // assuming you've already defined test to be something interesting
+    'blacklist-dev-deps',
+    'tessel-push'
+]);
+```
 
 ### tessel-push
 
