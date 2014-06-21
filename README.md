@@ -9,7 +9,7 @@ This project adds two tasks to your grunt: `blacklist-dev-deps` and `tessel-push
 
 This task pushes code to your tessel. By default, it looks in the `main` field of your `package.json` and deploys that. This task does not require you to have `tessel` installed globally - it installs `tessel` itself.
 
-I've tried to add sensible defaults, so you should be able to drop the following into your gruntfile and be good to go:
+I've tried to add sensible defaults, so you should be able to drop the following into your grunt config and be good to go:
 
 ```js
 'tesel-push': {
@@ -61,7 +61,7 @@ I've tried to add sensible defaults, so you should be able to drop the following
 ### blacklist-dev-deps
 By default, `tessel push` will bundle up everything in your cwd and deploy it to the tessel. If you have dev dependencies, this will result in an excess of code getting pushed onto the device. Tessel supports a blacklist option where you can tell it not to bundle certain paths. This task automates the process of blacklisting everything in your `devDependencies` in `package.json`.
 
- I've tried to add sensible defaults, so you should be able to drop the following into your gruntfile and be good to go:
+ I've tried to add sensible defaults, so you should be able to drop the following into your grunt config and be good to go:
 
 ```js
 'blacklist-dev-deps': {
