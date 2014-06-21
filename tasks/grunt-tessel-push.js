@@ -2,7 +2,7 @@
 
 module.exports = function(grunt) {
 
-    grunt.registerTask('tessel-push', function() {
+    grunt.registerMultiTask('tessel-push', function() {
         var done = this.async(),
             options = this.options({
                 log: grunt.log.ok

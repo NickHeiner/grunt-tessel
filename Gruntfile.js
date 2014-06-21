@@ -55,6 +55,19 @@ module.exports = function(grunt) {
             }
         },
 
+        'tessel-push': {
+            keepalive: {
+                options: {
+                    keepalive: true
+                }
+            },
+            'fire-and-foreget': {
+                options: {
+                    keepalive: false
+                }
+            }
+        },
+
         'blacklist-dev-deps': {
             'test-dev-deps': {
                 options: {
@@ -78,6 +91,7 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('default', 'test');
+    grunt.registerTask('lint', 'jshint');
     grunt.registerTask('unit', 'mochaTest:unit');
     
     grunt.registerTask('e2e', [
@@ -88,7 +102,7 @@ module.exports = function(grunt) {
     ]);
 
     grunt.registerTask('test', [
-        'jshint',
+        'lint',
         'unit',
         'e2e' 
     ]);

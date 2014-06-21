@@ -30,7 +30,10 @@
     "grunt-contrib-jshint": "^0.10.0",
     "grunt-mkdir": "^0.1.1",
     "grunt-mocha-test": "^0.11.0",
-    "load-grunt-tasks": "^0.6.0"
+    "load-grunt-tasks": "^0.6.0",
+    "proxyquire": "^1.0.1",
+    "sinon": "^1.10.2",
+    "sinon-chai": "^2.5.0"
   },
   "dependencies": {
     "lodash": "^2.4.1",
