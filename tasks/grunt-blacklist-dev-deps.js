@@ -2,7 +2,7 @@
 
 module.exports = function(grunt) {
 
-    grunt.registerTask(
+    grunt.registerMultiTask(
         'blacklist-dev-deps', 
         'Automatically copies all dev dependencies into the tessel push blacklist', 
         function() {

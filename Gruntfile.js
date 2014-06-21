@@ -48,6 +48,18 @@ module.exports = function(grunt) {
                     packageJsonFilePath: path.join('<%= directories.fixtures %>', 'package-dev-deps.json'),
                     outputPackageJsonFilePath: path.join('<%= directories.sandbox %>', 'package-dev-deps.json')
                 }
+            },
+            'test-existing-hardware-entries': {
+                options: {
+                    packageJsonFilePath: path.join('<%= directories.fixtures %>', 'package-existing-hardware-entries.json'),
+                    outputPackageJsonFilePath: path.join('<%= directories.sandbox %>', 'package-existing-hardware-entries.json')
+                }
+            },
+            'test-no-dev-deps': {
+                options: {
+                    packageJsonFilePath: path.join('<%= directories.fixtures %>', 'package-no-dev-deps.json'),
+                    outputPackageJsonFilePath: path.join('<%= directories.sandbox %>', 'package-no-dev-deps.json')
+                }
             }
         }
     });

@@ -36,14 +36,5 @@
     "q-io": "^1.11.2",
     "resolve": "^0.7.1",
     "tessel": "^0.3.5"
-  },
-  "hardware": {
-    "grunt": false,
-    "grunt-cli": false,
-    "grunt-contrib-clean": false,
-    "grunt-contrib-jshint": false,
-    "grunt-mocha-test": false,
-    "load-grunt-tasks": false,
-    "grunt-mkdir": false
   }
 }
