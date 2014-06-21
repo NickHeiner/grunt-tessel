@@ -91,5 +91,16 @@ By default, `tessel push` will bundle up everything in your cwd and deploy it to
 }
 ```
 
+### Standalone
+If you want this functionality free of grunt, you can also `require('grunt-tessel')` and you'll get the two functions by themselves.
+
+```js
+var gruntTessel = require('grunt-tessel');
+
+gruntTessel
+    .blacklistDevDeps()
+    .then(gruntTessel.push);
+```
+
 ### Contributing
 I'm by no means an expert with tessel development. I am happy to evolve these tasks as best practies for working with the tessel become apparent. PRs welcome if you have ideas for ways to make this better.
