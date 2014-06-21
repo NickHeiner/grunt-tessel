@@ -22,7 +22,7 @@ describe('blacklist dev deps', function() {
         getOutputPackageJsonFilePath = getBlacklistFileContents('outputPackageJsonFilePath');
 
     it('should not change package.json when there are no dev deps', function() {
-        expect(getBlacklistOption('outputPackageJsonFilePath', 'test-no-dev-deps')).to.not.be.a.path;
+        expect(getBlacklistOption('outputPackageJsonFilePath', 'test-no-dev-deps')).to.not.be.a.path();
     });
 
     it('should blacklist all dev deps when there are no existing blacklisted items', function() {
