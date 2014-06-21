@@ -6,7 +6,7 @@ module.exports = function(grunt) {
 
         jshint: {
             options: {
-                    node: true
+                node: true
             },   
             lib: {
                 src: ['lib/**/*.js'],
