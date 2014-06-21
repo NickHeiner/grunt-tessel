@@ -37,5 +37,16 @@ describe('blacklist dev deps', function() {
         });
     });
 
-    it('should respect existing entries for the "hardware" field');
+    it('should respect existing entries for the "hardware" field', function() {
+        return getOutputPackageJsonFilePath('test-existing-hardware-entries').then(function(newPackageJson) {
+            expect(newPackageJson.hardware).to.deep.equal({
+                './test': false,
+                'grunt': false,
+                'grunt-cli': false,
+                'grunt-contrib-jshint': false,
+                'grunt-mocha-test': false,
+                'load-grunt-tasks': false
+            });
+        });
+    });
 });
