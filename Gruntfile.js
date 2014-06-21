@@ -1,16 +1,35 @@
 module.exports = function(grunt) {
 
+    var path = require('path');
+
     require('load-grunt-tasks')(grunt);
     grunt.task.loadTasks('./tasks');
 
     grunt.initConfig({
+
+        directories: {
+            fixtures: path.join('test', 'fixtures'),
+            sandbox: path.join('test', 'sandbox')
+        },
+
+        clean: {
+            sandbox: '<%= directories.sandbox %>'
+        },
+
+        mkdir: {
+            sandbox: {
+                options: {
+                    create: ['<%= directories.sandbox %>']
+                }
+            }
+        },
 
         jshint: {
             options: {
                 node: true
             },   
             lib: {
-                src: ['lib/**/*.js'],
+                src: [path.join('lib', '**', '*.js')],
             },
             grunt: {
                 src: ['Gruntfile.js']
@@ -19,7 +38,16 @@ module.exports = function(grunt) {
 
         mochaTest: {
             e2e: {
-                src: ['test/e2e/**/*.js']
+                src: [path.join('test', 'e2e', '**', '*.js')]
+            }
+        },
+
+        'blacklist-dev-deps': {
+            'test-dev-deps': {
+                options: {
+                    packageJsonFilePath: path.join('<%= directories.fixtures %>', 'package-dev-deps.json'),
+                    outputPackageJsonFilePath: path.join('<%= directories.sandbox %>', 'package-dev-deps.json')
+                }
             }
         }
     });
@@ -27,6 +55,9 @@ module.exports = function(grunt) {
     grunt.registerTask('default', 'test');
     grunt.registerTask('test', [
         'jshint',
+        'clean:sandbox',
+        'mkdir:sandbox',
+        'blacklist-dev-deps',
         'mochaTest:e2e'
     ]);
 };
