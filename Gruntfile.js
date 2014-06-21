@@ -56,12 +56,16 @@ module.exports = function(grunt) {
         },
 
         'tessel-push': {
+            options: {
+                fileToPush: path.join('<%= directories.fixtures %>', 'blinky.js'),
+                additionalArgs: ['-s']
+            },
             keepalive: {
                 options: {
                     keepalive: true
                 }
             },
-            'fire-and-foreget': {
+            'fire-and-forget': {
                 options: {
                     keepalive: false
                 }
@@ -86,13 +90,23 @@ module.exports = function(grunt) {
                     packageJsonFilePath: path.join('<%= directories.fixtures %>', 'package-no-dev-deps.json'),
                     outputPackageJsonFilePath: path.join('<%= directories.sandbox %>', 'package-no-dev-deps.json')
                 }
-            }
+            },
+            default: {}
         }
     });
 
     grunt.registerTask('default', 'test');
     grunt.registerTask('lint', 'jshint');
     grunt.registerTask('unit', 'mochaTest:unit');
+
+    // Actually plug the tessel in and see that it blinks.
+    grunt.registerTask('manual-e2e-test', [
+        'lint',
+        'unit',
+        'blacklist-dev-deps:default',
+        'tessel-push:fire-and-forget',
+        'tessel-push:keepalive'
+    ]);
     
     grunt.registerTask('e2e', [
         'clean:sandbox',

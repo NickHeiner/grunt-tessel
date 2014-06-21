@@ -41,5 +41,19 @@
     "q-io": "^1.11.2",
     "resolve": "^0.7.1",
     "tessel": "^0.3.5"
+  },
+  "hardware": {
+    "chai": false,
+    "chai-fs": false,
+    "grunt": false,
+    "grunt-cli": false,
+    "grunt-contrib-clean": false,
+    "grunt-contrib-jshint": false,
+    "grunt-mkdir": false,
+    "grunt-mocha-test": false,
+    "load-grunt-tasks": false,
+    "proxyquire": false,
+    "sinon": false,
+    "sinon-chai": false
   }
 }
