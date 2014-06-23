@@ -1,5 +1,6 @@
 grunt-tessel
 ============
+[![Build Status](https://travis-ci.org/NickHeiner/grunt-tessel.svg?branch=master)](https://travis-ci.org/NickHeiner/grunt-tessel)
 
 > Grunt tasks to aid tessel development
 
