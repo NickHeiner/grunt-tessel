@@ -73,6 +73,8 @@ I've tried to add sensible defaults, so you should be able to drop the following
 
 This is just like `tessel-push`, but this calls `tessel run` instead. This deploys the js to the tessel but does not write it into flash memory. This flash memory will wear out after a certain number of uses, so you should use this instead of `tessel-push` during active development. Only run `tessel push` when you are ready to deploy more permanently.
 
+One difference between this and `tessel-push` is that `keepalive` is implied. If you wish the script to persist after the task ends, use `tessel-push`.
+
 ### blacklist-dev-deps
 By default, `tessel push` will bundle up everything in your cwd and deploy it to the tessel. If you have dev dependencies, this will result in an excess of code getting pushed onto the device. Tessel supports a blacklist option where you can tell it not to bundle certain paths. This task automates the process of blacklisting everything in your `devDependencies` in `package.json`.
 

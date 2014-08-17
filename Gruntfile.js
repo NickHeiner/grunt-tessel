@@ -77,11 +77,7 @@ module.exports = function(grunt) {
                 fileToPush: path.join('<%= directories.fixtures %>', 'test-run.js'),
                 additionalArgs: ['-s']
             },
-            'fire-and-forget': {
-                options: {
-                    keepalive: false
-                }
-            }
+            'default': {}
         },
 
         'blacklist-dev-deps': {
@@ -112,15 +108,21 @@ module.exports = function(grunt) {
     grunt.registerTask('unit', 'mochaTest:unit');
 
     // Actually plug the tessel in and see that it blinks.
-    grunt.registerTask('manual-e2e-test', [
+    grunt.registerTask('manual-push-e2e-test', [
         'lint',
         'unit',
         'blacklist-dev-deps:default',
         'tessel-push:fire-and-forget',
-        'tessel-run:fire-and-forget',
         'tessel-push:keepalive'
     ]);
-    
+
+    grunt.registerTask('manual-run-e2e-test', [
+        'lint',
+        'unit',
+        'blacklist-dev-deps:default',
+        'tessel-run:default',
+    ]);
+
     grunt.registerTask('e2e', [
         'clean:sandbox',
         'mkdir:sandbox',
