@@ -72,6 +72,18 @@ module.exports = function(grunt) {
             }
         },
 
+        'tessel-run': {
+            options: {
+                fileToPush: path.join('<%= directories.fixtures %>', 'test-run.js'),
+                additionalArgs: ['-s']
+            },
+            'fire-and-forget': {
+                options: {
+                    keepalive: false
+                }
+            }
+        },
+
         'blacklist-dev-deps': {
             'test-dev-deps': {
                 options: {
@@ -105,6 +117,7 @@ module.exports = function(grunt) {
         'unit',
         'blacklist-dev-deps:default',
         'tessel-push:fire-and-forget',
+        'tessel-run:fire-and-forget',
         'tessel-push:keepalive'
     ]);
     
